@@ -1,7 +1,7 @@
-const Dashboard=()=>{
+const DashboardPage=()=>{
     return(
         <>
         </>
     );
 }
-export default Dashboard;
+export default DashboardPage;

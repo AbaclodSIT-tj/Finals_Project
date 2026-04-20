@@ -1,7 +1,7 @@
-const Customer=()=>{
+const CustomerSegmentPage=()=>{
     return(
         <>
         </>
     );
 }
-export default Customer;
+export default CustomerSegmentPage;
