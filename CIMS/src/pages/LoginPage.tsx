@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {useNavigate} from 'react-router-dom'
 //setting some demo accounts
 const user=[
     {
@@ -17,18 +18,34 @@ const user=[
 const LoginPage=()=>{
     const [username, setUsername]=useState("");
     const [password, setPassword]=useState("");
-    const [error, setError]=useState("");
+    const [errorUser, setErrorUser]=useState("");
+    const [errorPass, setErrorPass]=useState("");
+
+    const navigating=useNavigate();
 
     const handleLogin=(event:React.FormEvent )=>{
         event.preventDefault();
 
-        const checker=user.find(user=>user.username===username&&user.password===password);
-
-        if(checker){
-            alert("Log In Successfully");
+        const validCheck=user.find(user=>user.username===username&&user.password===password);
+        const userCheck=user.find(user=>user.username===username);
+        if(input===""){
+            setErrorUser("fill in please");
+            setErrorPass("fill in please");
+        }else{}
+        if(validCheck){
+            alert("log in successfully");
         }else{
-            setError("Invalid Credentials");
+            if(!userCheck){
+                setErrorUser("Username does not exist");
+                setErrorPass("");
+            }else{
+                setErrorUser("");
+                setErrorPass("Password is not valid");
+            }
         }
+    }
+
+
     }
     return(
         <>
@@ -37,22 +54,36 @@ const LoginPage=()=>{
     <div>
         <input
         type="text"
-        placeholder="Your Username"
+        placeholder="Your Username..."
         value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        onChange={(e) =>{ setUsername(e.target.value)
+            setErrorUser("")
+        }}
         />
     </div>
+    {errorUser && <p style={{ color: 'red' }}>{errorUser}</p>}
     <div>
         <input
         type="password"
-        placeholder="Your Password"
+        placeholder="Your Password..."
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        onChange={(e) => {setPassword(e.target.value)
+        setErrorPass("")
+        }}
         />
     </div>
-    {error && <p style={{ color: 'red' }}>{error}</p>}
+    {errorPass && <p style={{ color: 'red' }}>{errorPass}</p>}
     <button>Login</button>
 </form>
+
+        <div>
+    <p>No Account?click below to Sign Up</p>
+            <button onClick={()=>navigating('/SignUp')}>
+                SignUp
+            </button>          
+        </div>      
+
+        
         </>
     );
 }
