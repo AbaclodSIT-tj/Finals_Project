@@ -28,10 +28,7 @@ const LoginPage=()=>{
 
         const validCheck=user.find(user=>user.username===username&&user.password===password);
         const userCheck=user.find(user=>user.username===username);
-        if(input===""){
-            setErrorUser("fill in please");
-            setErrorPass("fill in please");
-        }else{}
+
         if(validCheck){
             alert("log in successfully");
         }else{
@@ -43,7 +40,6 @@ const LoginPage=()=>{
                 setErrorPass("Password is not valid");
             }
         }
-    }
 
 
     }
