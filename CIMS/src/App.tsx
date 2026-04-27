@@ -20,7 +20,6 @@ function App(){
 
   return (
     <>
-    <LoginPage/>
     <Routes>
       <Route path="/" element={<LoginPage/>}/>
       <Route path="/SignUp" element={<SignUpPage/>}/>

@@ -1,20 +1,7 @@
 import {useState} from 'react'
 import {useNavigate} from 'react-router-dom'
+import {getUsers} from '../ts/dataUser'
 //setting some demo accounts
-const user=[
-    {
-        username:"admin",
-        password:"1234"
-    },
-    {
-        username:"Abaclod",
-        password:"Dolcaba"
-    },
-    {
-        username:"Thomson",
-        password:"Nosmoht"
-    }
-];
 const LoginPage=()=>{
     const [username, setUsername]=useState("");
     const [password, setPassword]=useState("");
@@ -26,11 +13,13 @@ const LoginPage=()=>{
     const handleLogin=(event:React.FormEvent )=>{
         event.preventDefault();
 
-        const validCheck=user.find(user=>user.username===username&&user.password===password);
-        const userCheck=user.find(user=>user.username===username);
+        const flesh=getUsers();
+        const validCheck=flesh.find(user=>user.username===username&&user.password===password);
+        const userCheck=flesh.find(user=>user.username===username);
 
         if(validCheck){
             alert("log in successfully");
+            console.log("logged in successfully");
         }else{
             if(!userCheck){
                 setErrorUser("Username does not exist");
