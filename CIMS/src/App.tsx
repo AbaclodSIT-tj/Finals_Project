@@ -23,6 +23,10 @@ function App(){
     <Routes>
       <Route path="/" element={<LoginPage/>}/>
       <Route path="/SignUp" element={<SignUpPage/>}/>
+      <Route path="/HomePage" element={<HomePage/>}/>
+      <Route path="/DashboardPage" element={<DashboardPage/>}/>
+      <Route path="/CustomerSegementPage" element={<CustomerSegementPage/>}/>
+      <Route path="/AccManagementPage" element={<AccManagementPage/>}/>
     </Routes>
 
 
