@@ -10,7 +10,7 @@ const LoginPage=()=>{
 
     const navigating=useNavigate();
 
-    const handleLogin=(event:React.FormEvent )=>{
+    const handleLogin=(event:React.FormEvent)=>{
         event.preventDefault();
 
         const flesh=getUsers();
