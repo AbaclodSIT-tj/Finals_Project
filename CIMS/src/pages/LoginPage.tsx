@@ -20,6 +20,7 @@ const LoginPage=()=>{
         if(validCheck){
             alert("log in successfully");
             console.log("logged in successfully");
+            navigating('/HomePage');
         }else{
             if(!userCheck){
                 setErrorUser("Username does not exist");
